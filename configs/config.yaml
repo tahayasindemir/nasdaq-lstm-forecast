@@ -1,0 +1,20 @@
+model:
+  name: lstm              # Model name/type, for logging or conditional logic
+  input_size: 6           # Number of features per timestep (columns in X)
+  hidden_size: 64         # LSTM hidden layer size
+  num_layers: 2           # Number of stacked LSTM layers
+  dropout: 0.2            # Dropout rate to prevent overfitting
+
+training:
+  batch_size: 32          # Batch size during training
+  epochs: 50              # Number of training epochs
+  learning_rate: 0.001    # Learning rate for the optimizer
+  device: "cuda"          # Use GPU ("cuda") or CPU ("cpu")
+
+data:
+  ticker: AAPL            # Stock ticker, used to name CSV files
+  window_size: 60         # How many time steps to use as input
+  horizon: 5              # How many steps ahead to predict
+  scaler: standard        # "standard" = StandardScaler, "minmax" = MinMaxScaler
+  split_ratio: 0.8        # Train/test split
+  data_path: data/processed/AAPL.csv  # 🔥 Path to the CSV file to load
